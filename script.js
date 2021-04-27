@@ -1,20 +1,16 @@
 'use strict';
 
-const number = 20;
+const str = "tESt";
+const arr = [1,2,3];
 
-function showFirstMessage(text) {
-    console.log(text);
-    const number = 10;
-    console.log(number);
-}
+console.log(arr.length);
+console.log(str.toUpperCase());
+console.log(str.toLowerCase());
+console.log(str);
 
-showFirstMessage("Hi man");
-console.log(number);
+const fruit = "Some fruit";
+console.log(fruit.indexOf("fruit"));
 
-function calc(a, b) {
-    return (a + b);
-}
+const logg = "Hello world";
 
-console.log(calc(4, 3));
-console.log(calc(5, 6));
-console.log(calc(10, -11));
+console.log(logg.slice(6, 11));
