@@ -1,77 +1,28 @@
 'use strict';
 
-// let a = 5,
-//       b = a;
+let str = "some";
+let strObj = new String(str);
 
-// b = b + 5;
-// console.log(b);
-// console.log(a);
+// console.log(typeof(str));
+// console.log(typeof(strObj));
 
-// const obj = {
-//     a: 5,
-//     b: 1
-// };
+console.dir([1, 2, 3]);
 
-// const copy = obj;
-// copy.a = 10;
-
-// console.log(copy);
-// console.log(obj);
-
-function copy(main) {
-    let objCopy = {};
-
-    let key;
-    for (key in main) {
-        objCopy[key] = main[key];
-    }
-
-    return objCopy;
-}
-
-const numbers = {
-    a: 2,
-    b: 5,
-    c: {
-        x: 7,
-        y: 4
+const soldier = {
+    health: 400,
+    armor: 100,
+    sayHello: function() {
+        console.log("Hello");
     }
 };
 
-const newNumbers = copy(numbers);
-// console.log(newNumbers);
-
-newNumbers.c.x = 5;
-// console.log(newNumbers);
-// console.log(numbers);
-
-const add = {
-    d: 17,
-    e: 20
+const john = {
+    health: 100
 };
 
-const clone = Object.assign(numbers, add);
-clone.d = 20;
-// console.log(add);
-// console.log(clone);
+// john.__proto__ = soldier;
 
-const oldArray = ["a", "b", "c"];
-const newArray = oldArray.slice();
+Object.setPrototypeOf(john, soldier);
 
-newArray[1] = "Hello";
-console.log(newArray);
-console.log(oldArray);
 
-const videos = ["youtube", "vimeo", "rutube"],
-      blogs = ["wordpress", "livejournal", "blogger"],
-      internet = [...videos, ...blogs, "vk", "facebook"];
-console.log(internet);
-
-function log(a, b, c) {
-    console.log(a);
-    console.log(b);
-    console.log(c);
-}
-
-const num = [2, 5, 7];
-log(...num);
+john.sayHello();
