@@ -1,35 +1,77 @@
 'use strict';
 
-const arr = [11, 22, 31, 6, 82];
-arr.sort(compareNum);
-console.log(arr);
+// let a = 5,
+//       b = a;
 
-function compareNum(a, b) {
-    return a - b;
+// b = b + 5;
+// console.log(b);
+// console.log(a);
+
+// const obj = {
+//     a: 5,
+//     b: 1
+// };
+
+// const copy = obj;
+// copy.a = 10;
+
+// console.log(copy);
+// console.log(obj);
+
+function copy(main) {
+    let objCopy = {};
+
+    let key;
+    for (key in main) {
+        objCopy[key] = main[key];
+    }
+
+    return objCopy;
 }
 
-// arr[99] = 0;
-// console.log(arr.length);
+const numbers = {
+    a: 2,
+    b: 5,
+    c: {
+        x: 7,
+        y: 4
+    }
+};
 
-// arr.forEach(function(item, i, arr) {
-//     console.log(`${i}: ${item} внутри массива ${arr}`);
-// });
+const newNumbers = copy(numbers);
+// console.log(newNumbers);
 
+newNumbers.c.x = 5;
+// console.log(newNumbers);
+// console.log(numbers);
 
-// arr.pop();
-// arr.push(10);
+const add = {
+    d: 17,
+    e: 20
+};
 
-// console.log(arr);
+const clone = Object.assign(numbers, add);
+clone.d = 20;
+// console.log(add);
+// console.log(clone);
 
-// for (let i = 0; i < arr.length; i++) {
-//     console.log(arr[i]);
-// }
+const oldArray = ["a", "b", "c"];
+const newArray = oldArray.slice();
 
-// for (let value of arr) {
-//     console.log(value);
-// }
+newArray[1] = "Hello";
+console.log(newArray);
+console.log(oldArray);
 
-// const str = prompt("", "");
-// const products = str.split(", ");
-// products.sort();
-// console.log(products.join("; "));
+const videos = ["youtube", "vimeo", "rutube"],
+      blogs = ["wordpress", "livejournal", "blogger"],
+      internet = [...videos, ...blogs, "vk", "facebook"];
+console.log(internet);
+
+function log(a, b, c) {
+    console.log(a);
+    console.log(b);
+    console.log(c);
+}
+
+const num = [2, 5, 7];
+log(...num);
