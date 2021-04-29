@@ -1,31 +1,35 @@
 'use strict';
 
-const options = {
-    name: "test",
-    width: 1024,
-    height: 1024,
-    colors: {
-        border: "black",
-        background: "red"
-    },
-    makeTest: function() {
-        console.log("Test");
-    }
-};
+const arr = [11, 22, 31, 6, 82];
+arr.sort(compareNum);
+console.log(arr);
 
-options.makeTest();
-
-for (let key in options) {
-    if (typeof(options[key]) === "object") {
-        for (let i in options[key]) {
-            console.log(`Свойство ${i} имеет значение ${options[key][i]}`);
-        }
-    } else {
-        console.log(`Свойство ${key} имеет значение ${options[key]}`);
-    }
+function compareNum(a, b) {
+    return a - b;
 }
 
-console.log(Object.keys(options).length);
+// arr[99] = 0;
+// console.log(arr.length);
 
-const {border, background} = options.colors;
-console.log(border);
+// arr.forEach(function(item, i, arr) {
+//     console.log(`${i}: ${item} внутри массива ${arr}`);
+// });
+
+
+// arr.pop();
+// arr.push(10);
+
+// console.log(arr);
+
+// for (let i = 0; i < arr.length; i++) {
+//     console.log(arr[i]);
+// }
+
+// for (let value of arr) {
+//     console.log(value);
+// }
+
+// const str = prompt("", "");
+// const products = str.split(", ");
+// products.sort();
+// console.log(products.join("; "));
