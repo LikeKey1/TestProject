@@ -1,88 +1,50 @@
-/* Задание на урок:
+"use strict";
 
-1) У нас уже есть рабочее приложение, состоящее из отдельных функций. Представьте, что
-перед вами стоит задача переписать его так, чтобы все функции стали методами объекта personalMovieDB
-Такое случается в реальных продуктах при смене технологий или подхода к архитектуре программы
+// To String
 
-2) Создать метод toggleVisibleMyDB, который при вызове будет проверять свойство privat. Если оно false - он
-переключает его в true, если true - переключает в false. Протестировать вместе с showMyDB.
+// 1)
+console.log(typeof(String(null)));
+console.log(typeof(String(4)));
 
-3) В методе writeYourGenres запретить пользователю нажать кнопку "отмена" или оставлять пустую строку. 
-Если он это сделал - возвращать его к этому же вопросу. После того, как все жанры введены - 
-при помощи метода forEach вывести в консоль сообщения в таком виде:
-"Любимый жанр #(номер по порядку, начиная с 1) - это (название из массива)"*/
+// 2)
+console.log(typeof(5 + ""));
 
-'use strict';
+const num = 5;
 
-const personalMovieDB = {
-    count: undefined,
-    movies: {},
-    actors: {},
-    genres: [],
-    private: false,
+console.log("https://vk.com/catalog/" + num);
 
-    start: function() {
-        personalMovieDB.count = +prompt("Сколько фильмов вы уже посмотрели?", "");
+const fontSize = 26 + "px";
 
-        while (personalMovieDB.count == "" || personalMovieDB.count == null || isNaN(personalMovieDB.count)) {
-            personalMovieDB.count = +prompt("Сколько фильмов вы уже посмотрели?", "");
-        }
-    },
+// To number
 
-    rememberMyMovies: function() {
-        for (let i = 0; i < 2; i++) {
-            let a = prompt("Один из последних просмотренных фильмов?", "");
-            
-            while (a === "" || a === null || a.length > 50) {
-                a = prompt("Один из последних просмотренных фильмов?", "");
-            }
-        
-            const b = +prompt("На сколько оцените его?", "");
-            
-            personalMovieDB.movies[a] = b;
-        }
-    },
+// 1)
+console.log(typeof(Number("4")));
 
-    detectPersonalLevel: function() {
-        if (personalMovieDB.count < 10) {
-            console.log("Просмотрено довольно мало фильмов");
-        } else if (personalMovieDB.count < 30) {
-            console.log("Вы классический зритель");
-        } else if (personalMovieDB.count >= 30) {
-            console.log("Вы киноман");
-        } else {
-            console.log("Произошла ошибка");
-        }
-    },
+// 2)
+console.log(typeof(+"4"));
 
-    showMyDB: function() {
-        if (!personalMovieDB.private) {
-            console.log(personalMovieDB);
-        }
-    },
+// 3)
+console.log(typeof(parseInt("12px", 10)));
 
-    writeYourGenres: function() {
-        for (let i = 1; i < 4; i++) {
-            let genre = prompt("Ваш любимый жанр #" + i);
-            while (genre === "", genre === null) {
-                genre = prompt("Ваш любимый жанр #" + i);
-            }
-            personalMovieDB.genres.push(genre);
-        }
-        personalMovieDB.genres.forEach(function(item, i) {
-            console.log(`Любимый жанр #${i+1} - это ${item}`);
-        });
-    },
+let answer = +prompt("Hello", "");
 
-    toggleVisibleMyDB: function() {
-        personalMovieDB.private ? personalMovieDB.private = false : personalMovieDB.private = true;
-    }
-};
+// To boolean
 
-personalMovieDB.start();
-personalMovieDB.rememberMyMovies();
-personalMovieDB.writeYourGenres();
-personalMovieDB.detectPersonalLevel();
-personalMovieDB.showMyDB();
+// 1)
+let switcher = null;
 
+if (switcher) {
+    console.log("Working...");
+}
 
+switcher = 1;
+
+if (switcher) {
+    console.log("Working...");
+}
+
+// 2)
+console.log(typeof(Boolean(2)));
+
+// 3)
+console.log(typeof(!!"4"));
